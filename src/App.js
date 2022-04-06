@@ -36,8 +36,10 @@ function App() {
   return (
     <div>
       <Chacaters charactersList={charactersList} />
+      <div className="botoes">
       <button onClick={previousPage}>Previous</button>
       <button onClick={nextPage}>Next</button>
+      </div>
     </div>
   );
 }
