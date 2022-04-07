@@ -21,7 +21,7 @@ function App() {
     };
 
     fetchResponse();
-  }, [currentPage, info]);
+  }, [currentPage]);
   
 
   const previousPage = () => {
