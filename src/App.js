@@ -5,31 +5,33 @@ import Chacaters from "./Components/Characters";
 function App() {
   const [charactersList, setCharactersList] = useState([]);
 
-  const [currentPage, setcurrentPage] = useState(1);
+  const [currentPage, setcurrentPage] = useState('https://rickandmortyapi.com/api/character/');
+
+  const [info, setInfo] = useState('');
+
 
   useEffect(() => {
     const fetchResponse = async () => {
-      const response = await fetch(
-        `https://rickandmortyapi.com/api/character/?page=${currentPage}`
-      );
+      const response = await fetch(currentPage);
 
       const jsonResponse = await response.json();
+
       setCharactersList(jsonResponse.results);
+      setInfo(jsonResponse.info)
     };
 
     fetchResponse();
-  }, [currentPage]);
+  }, [currentPage, info]);
+  
 
   const previousPage = () => {
-    if (currentPage > 1) {
-      setcurrentPage(currentPage - 1);
+    if (info.prev !== null) {
+      setcurrentPage(info.prev);
     }
   };
 
   const nextPage = () => {
-    if (currentPage <= 42) {
-      setcurrentPage(currentPage + 1);
-    }
+    setcurrentPage(info.next)
   };
 
 
