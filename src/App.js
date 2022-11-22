@@ -73,7 +73,9 @@ function App() {
           </div>
         )}
       </main>
-      <footer></footer>
+      <footer>
+        © yasmin
+      </footer>
     </>
   );
 }

@@ -29,3 +29,8 @@ button:hover {
   width: 400px;
   margin: 100px;
 }
+
+footer{
+  display: flex;
+  justify-content: center;
+}
